@@ -3,18 +3,18 @@
     handlers: {}
   }
   
-  PubSub.prototype.on = function(event, handler){
-    if (!(event in this.handlers)){
-      this.handlers[event] = [];
+  PubSub.prototype.on = function(evt, handler){
+    if (!(evt in this.handlers)){
+      this.handlers[evt] = [];
     }
-    this.handlers[event].push(handler);
+    this.handlers[evt].push(handler);
     return this;
   }
   
-  PubSub.prototype.emit = function(event) {
+  PubSub.prototype.emit = function(evt) {
   	var handlerArgs = Array.prototype.slice.call(arguments, 1);
-  	for (var i = 0; i < this.handlers[event].length; i++) {
-  		this.handlers[eventType][i].apply(this, handlerArgs);
+  	for (var i = 0; i < this.handlers[evt].length; i++) {
+  		this.handlers[evt][i].apply(this, handlerArgs);
   	}
   	return this;
   }
