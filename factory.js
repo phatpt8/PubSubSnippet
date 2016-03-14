@@ -1,5 +1,5 @@
 (function(w, d, undefined){
-  var PubSub = {
+  var PubSub = function(){
     handlers: {}
   }
   
@@ -18,5 +18,7 @@
   	}
   	return this;
   }
+  
+  /* next update: remove handlers, attach one-time handler*/
 
 })(window, document);
